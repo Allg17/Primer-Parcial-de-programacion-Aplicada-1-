@@ -76,7 +76,7 @@ namespace Repaso.NotasCreditos_Form
              NotasCredito Notas = LlenaClase();
 
             if (BLL.NotasCreditoBLL.Guardar(Notas))
-                MessageBox.Show("Guardado!!");
+                MessageBox.Show("Guardado!!!");
         }
 
 
