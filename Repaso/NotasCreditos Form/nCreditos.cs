@@ -145,7 +145,7 @@ namespace Repaso.NotasCreditos_Form
         private void Modificarbutton_Click(object sender, EventArgs e)
         {
             if (BLL.NotasCreditoBLL.Modificar(LlenaClase()))
-                MessageBox.Show("Modificado");
+                MessageBox.Show("Modificado!!");
         }
     }
 }

@@ -149,7 +149,7 @@
             // 
             this.IDEstudiantetextBox.Location = new System.Drawing.Point(151, 123);
             this.IDEstudiantetextBox.Name = "IDEstudiantetextBox";
-            this.IDEstudiantetextBox.Size = new System.Drawing.Size(120, 20);
+            this.IDEstudiantetextBox.Size = new System.Drawing.Size(165, 20);
             this.IDEstudiantetextBox.TabIndex = 11;
             // 
             // FechadateTimePicker
@@ -178,9 +178,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(337, 123);
+            this.button5.Location = new System.Drawing.Point(322, 114);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.Size = new System.Drawing.Size(75, 36);
             this.button5.TabIndex = 16;
             this.button5.Text = "Buscar";
             this.button5.UseVisualStyleBackColor = true;
