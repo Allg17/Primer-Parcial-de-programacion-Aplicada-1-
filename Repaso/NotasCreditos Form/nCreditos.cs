@@ -138,7 +138,7 @@ namespace Repaso.NotasCreditos_Form
             }
             else
             {
-                MessageBox.Show("Persona No encontada");
+                MessageBox.Show("Persona No encontada!!");
             }
         }
 
