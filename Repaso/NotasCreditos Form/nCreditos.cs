@@ -76,7 +76,7 @@ namespace Repaso.NotasCreditos_Form
              NotasCredito Notas = LlenaClase();
 
             if (BLL.NotasCreditoBLL.Guardar(Notas))
-                MessageBox.Show("Estudiante Guardado");
+                MessageBox.Show("Guardado!!");
         }
 
 
@@ -112,7 +112,7 @@ namespace Repaso.NotasCreditos_Form
 
             if (BLL.NotasCreditoBLL.Eliminar(ID))
             {
-                MessageBox.Show("Eliminado");
+                MessageBox.Show("Eliminado!!");
             }
         }
 
