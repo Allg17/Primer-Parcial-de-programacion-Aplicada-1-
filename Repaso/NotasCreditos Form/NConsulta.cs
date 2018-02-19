@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Repaso.Entidad;
+using Repaso.Reporte;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +18,7 @@ namespace Repaso.NotasCreditos_Form
             InitializeComponent();
         }
 
+        List<NotasCredito> datos = new List<NotasCredito>();
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             String a;
@@ -24,9 +27,23 @@ namespace Repaso.NotasCreditos_Form
             int.TryParse(CriteriotextBox.Text, out ID);
 
             if (FiltrarcomboBox.SelectedIndex == 0)
-                PersonasdataGridView.DataSource = BLL.NotasCreditoBLL.GetList(t => t.Observaciones.Contains(a));
-           if(FiltrarcomboBox.SelectedIndex == 1)
-                PersonasdataGridView.DataSource = BLL.NotasCreditoBLL.GetList(t => t.NotasID == ID);
+                datos = BLL.NotasCreditoBLL.GetList(t => t.Observaciones.Contains(a));
+            if(FiltrarcomboBox.SelectedIndex == 1)
+                datos = BLL.NotasCreditoBLL.GetList(t => t.NotasID == ID);
+
+            PersonasdataGridView.DataSource = datos;
+        }
+
+        private void Imprimirbutton_Click(object sender, EventArgs e)
+        {
+            cReporteNotasCreditos abrir = new cReporteNotasCreditos(datos);
+            abrir.Show();
+        }
+
+        private void MontoExoneradobutton_Click(object sender, EventArgs e)
+        {
+            cMontoExonerado abrir = new cMontoExonerado();
+            abrir.Show();
         }
     }
 }

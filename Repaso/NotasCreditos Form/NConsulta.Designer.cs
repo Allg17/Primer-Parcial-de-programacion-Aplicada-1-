@@ -34,6 +34,8 @@
             this.FiltrarcomboBox = new System.Windows.Forms.ComboBox();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.PersonasdataGridView = new System.Windows.Forms.DataGridView();
+            this.Imprimirbutton = new System.Windows.Forms.Button();
+            this.MontoExoneradobutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PersonasdataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,17 +100,42 @@
             this.PersonasdataGridView.Size = new System.Drawing.Size(812, 346);
             this.PersonasdataGridView.TabIndex = 34;
             // 
+            // Imprimirbutton
+            // 
+            this.Imprimirbutton.Location = new System.Drawing.Point(511, 20);
+            this.Imprimirbutton.Margin = new System.Windows.Forms.Padding(2);
+            this.Imprimirbutton.Name = "Imprimirbutton";
+            this.Imprimirbutton.Size = new System.Drawing.Size(97, 45);
+            this.Imprimirbutton.TabIndex = 40;
+            this.Imprimirbutton.Text = "Imprimir";
+            this.Imprimirbutton.UseVisualStyleBackColor = true;
+            this.Imprimirbutton.Click += new System.EventHandler(this.Imprimirbutton_Click);
+            // 
+            // MontoExoneradobutton
+            // 
+            this.MontoExoneradobutton.Location = new System.Drawing.Point(612, 20);
+            this.MontoExoneradobutton.Margin = new System.Windows.Forms.Padding(2);
+            this.MontoExoneradobutton.Name = "MontoExoneradobutton";
+            this.MontoExoneradobutton.Size = new System.Drawing.Size(97, 45);
+            this.MontoExoneradobutton.TabIndex = 41;
+            this.MontoExoneradobutton.Text = "Monto Exonerado";
+            this.MontoExoneradobutton.UseVisualStyleBackColor = true;
+            this.MontoExoneradobutton.Click += new System.EventHandler(this.MontoExoneradobutton_Click);
+            // 
             // NConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 468);
+            this.Controls.Add(this.MontoExoneradobutton);
+            this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CriteriotextBox);
             this.Controls.Add(this.FiltrarcomboBox);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.PersonasdataGridView);
+            this.MaximizeBox = false;
             this.Name = "NConsulta";
             this.Text = "NConsulta";
             ((System.ComponentModel.ISupportInitialize)(this.PersonasdataGridView)).EndInit();
@@ -125,5 +152,7 @@
         private System.Windows.Forms.ComboBox FiltrarcomboBox;
         private System.Windows.Forms.Button Buscarbutton;
         private System.Windows.Forms.DataGridView PersonasdataGridView;
+        private System.Windows.Forms.Button Imprimirbutton;
+        private System.Windows.Forms.Button MontoExoneradobutton;
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Repaso.Entidad;
+using Repaso.Reporte;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +13,7 @@ namespace Repaso
 {
     public partial class CEstudiantes : Form
     {
+        List<Estudiantes> datos = new List<Estudiantes>();
         public CEstudiantes()
         {
             InitializeComponent();
@@ -24,9 +27,16 @@ namespace Repaso
             int.TryParse(CriteriotextBox.Text, out ID);
 
             if (FiltrarcomboBox.SelectedIndex == 0)
-                PersonasdataGridView.DataSource = BLL.EstudiantesBLL.GetList(t => t.Nombre.Contains(a));
+                datos = BLL.EstudiantesBLL.GetList(t => t.Nombre.Contains(a));
             else
-                PersonasdataGridView.DataSource = BLL.EstudiantesBLL.GetList(t => t.EstudianteID== ID);
+                datos = BLL.EstudiantesBLL.GetList(t => t.EstudianteID== ID);
+            PersonasdataGridView.DataSource = datos;
+        }
+
+        private void Imprimir_Click(object sender, EventArgs e)
+        {
+            cReporte abrir = new cReporte(datos);
+            abrir.Show();
         }
     }
 }

@@ -14,8 +14,9 @@ namespace Repaso.Entidad
         public string Observaciones { get; set; }
         public decimal Monto { get; set; }
         public DateTime Fecha { get; set; }
-        public float PctBeca { get; set; }
+        public decimal PctBeca { get; set; }
         public decimal MontoAsignatura { get; set; }
+        //public int MontoExonerado { get; set; }
 
         public NotasCredito()
         {
@@ -26,9 +27,10 @@ namespace Repaso.Entidad
             this.Fecha = DateTime.Now;
             this.MontoAsignatura = 0;
             this.PctBeca = 0;
+            //this.MontoExonerado = 0;
         }
 
-        public NotasCredito(int notasID, int estudianteID, string observaciones, decimal monto, DateTime fecha, float pctBeca, decimal montoAsignatura)
+        public NotasCredito(int notasID, int estudianteID, string observaciones, decimal monto, DateTime fecha, decimal pctBeca, decimal montoAsignatura)
         {
             NotasID = notasID;
             EstudianteID = estudianteID;
@@ -37,6 +39,7 @@ namespace Repaso.Entidad
             Fecha = fecha;
             PctBeca = pctBeca;
             MontoAsignatura = montoAsignatura;
+            //MontoExonerado = Montoexonerado;, int Montoexonerado
         }
     }
 }

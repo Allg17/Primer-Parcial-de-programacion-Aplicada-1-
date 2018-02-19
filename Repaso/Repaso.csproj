@@ -46,15 +46,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\EstudiantesBLL.cs" />
+    <Compile Include="BLL\MontoExoneradoBLL.cs" />
     <Compile Include="BLL\NotasCreditoBLL.cs" />
     <Compile Include="CEstudiantes.cs">
       <SubType>Form</SubType>
@@ -73,9 +81,17 @@
     <Compile Include="CEstudiantes.Designer.cs">
       <DependentUpon>CEstudiantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="cMontoExonerado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cMontoExonerado.Designer.cs">
+      <DependentUpon>cMontoExonerado.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Contex.cs" />
     <Compile Include="DAL\Contexto.cs" />
+    <Compile Include="DAL\ContextoMonto.cs" />
     <Compile Include="Entidad\Estudiantes.cs" />
+    <Compile Include="Entidad\MontoExonerado.cs" />
     <Compile Include="Entidad\NotasCredito.cs" />
     <Compile Include="NotasCreditos Form\NConsulta.cs">
       <SubType>Form</SubType>
@@ -89,6 +105,30 @@
     <Compile Include="NotasCreditos Form\nCreditos.Designer.cs">
       <DependentUpon>nCreditos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\cReporteNotasCreditos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\cReporteNotasCreditos.Designer.cs">
+      <DependentUpon>cReporteNotasCreditos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\EjemploReporte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EjemploReporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\cReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\cReporte.Designer.cs">
+      <DependentUpon>cReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\NotasCreditosReporte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotasCreditosReporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="rEstudiantes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,11 +140,28 @@
     <EmbeddedResource Include="CEstudiantes.resx">
       <DependentUpon>CEstudiantes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="cMontoExonerado.resx">
+      <DependentUpon>cMontoExonerado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NotasCreditos Form\NConsulta.resx">
       <DependentUpon>NConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NotasCreditos Form\nCreditos.resx">
       <DependentUpon>nCreditos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\cReporteNotasCreditos.resx">
+      <DependentUpon>cReporteNotasCreditos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\EjemploReporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EjemploReporte.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\cReporte.resx">
+      <DependentUpon>cReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\NotasCreditosReporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NotasCreditosReporte.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rEstudiantes.resx">
       <DependentUpon>rEstudiantes.cs</DependentUpon>
@@ -118,7 +175,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -133,6 +192,7 @@
   <ItemGroup>
     <Content Include="DAL\DatabaseContextoScripts.sql" />
     <Content Include="DAL\DataBaseContextScripts.sql" />
+    <Content Include="DAL\Script monto Exonerado.sql" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -140,6 +200,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

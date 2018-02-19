@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Modificarbutton = new System.Windows.Forms.Button();
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.Observacioneslabel = new System.Windows.Forms.Label();
@@ -45,7 +46,15 @@
             this.NombrestextBox = new System.Windows.Forms.TextBox();
             this.PersonaIdtextBox = new System.Windows.Forms.TextBox();
             this.NotasCrditobutton = new System.Windows.Forms.Button();
+            this.NombreerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.MontoerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ObservacioneserrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.IDEstudianteserrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MontonumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NombreerrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MontoerrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ObservacioneserrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IDEstudianteserrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // Modificarbutton
@@ -215,6 +224,22 @@
             this.NotasCrditobutton.UseVisualStyleBackColor = true;
             this.NotasCrditobutton.Click += new System.EventHandler(this.NotasCrditobutton_Click);
             // 
+            // NombreerrorProvider
+            // 
+            this.NombreerrorProvider.ContainerControl = this;
+            // 
+            // MontoerrorProvider
+            // 
+            this.MontoerrorProvider.ContainerControl = this;
+            // 
+            // ObservacioneserrorProvider
+            // 
+            this.ObservacioneserrorProvider.ContainerControl = this;
+            // 
+            // IDEstudianteserrorProvider
+            // 
+            this.IDEstudianteserrorProvider.ContainerControl = this;
+            // 
             // rEstudiantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,9 +262,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NombrestextBox);
             this.Controls.Add(this.PersonaIdtextBox);
+            this.MaximizeBox = false;
             this.Name = "rEstudiantes";
             this.Text = "Registro de Incripcion";
             ((System.ComponentModel.ISupportInitialize)(this.MontonumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NombreerrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MontoerrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ObservacioneserrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IDEstudianteserrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,6 +294,10 @@
         private System.Windows.Forms.TextBox NombrestextBox;
         private System.Windows.Forms.TextBox PersonaIdtextBox;
         private System.Windows.Forms.Button NotasCrditobutton;
+        private System.Windows.Forms.ErrorProvider NombreerrorProvider;
+        private System.Windows.Forms.ErrorProvider MontoerrorProvider;
+        private System.Windows.Forms.ErrorProvider ObservacioneserrorProvider;
+        private System.Windows.Forms.ErrorProvider IDEstudianteserrorProvider;
     }
 }
 

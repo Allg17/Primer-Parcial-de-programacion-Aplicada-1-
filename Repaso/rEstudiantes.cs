@@ -24,17 +24,56 @@ namespace Repaso
             NombrestextBox.Clear();
             MontonumericUpDown.Value = 0;
             txtObservacion.Clear();
-
+            LimpiarProvider();
         }
-
+        private void LimpiarProvider()
+        {
+            NombreerrorProvider.Clear();
+            MontoerrorProvider.Clear();
+            ObservacioneserrorProvider.Clear();
+            IDEstudianteserrorProvider.Clear();
+        }
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             Estudiantes estudiante = LlenaClase();
-
-            if (BLL.EstudiantesBLL.Guardar(estudiante))
+            LimpiarProvider();
+            if (Validar()==false)
+            {
+                return;
+            }
+            if(BLL.EstudiantesBLL.Guardar(estudiante))
                 MessageBox.Show("Estudiante Guardado");
         }
-
+        private bool Validar()
+        {
+            bool paso = false;
+            int abrir = 0;
+            if (NombrestextBox.Text == String.Empty)
+            {
+                
+                NombreerrorProvider.SetError(NombrestextBox, "Debe llenar este campo");
+                abrir = 1;
+            }
+            if(MontonumericUpDown.Value == 0)
+            {
+                MontoerrorProvider.SetError(MontonumericUpDown, "Debe llenar este campo");
+                abrir = 1;
+            }
+            if(txtObservacion.Text == String.Empty)
+            {
+                ObservacioneserrorProvider.SetError(txtObservacion, "Debe llenar este campo");
+                abrir = 1;
+            }
+            if(abrir ==1)
+            {
+                MessageBox.Show("Debe llenar los campos especificados");
+            }
+            else
+            {
+                paso = true;
+            }
+            return paso;
+        }
         private Estudiantes LlenaClase()
         {
             Estudiantes estudiante = new Estudiantes();
@@ -57,10 +96,13 @@ namespace Repaso
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
             Estudiantes eliminar = new Estudiantes();
-
+            LimpiarProvider();
             int ID;
             int.TryParse(PersonaIdtextBox.Text, out ID);
-
+            if (IdProvider() == false)
+            {
+                return;
+            }
             if (BLL.EstudiantesBLL.Eliminar(ID))
             {
                 MessageBox.Show("Eliminado");
@@ -69,6 +111,12 @@ namespace Repaso
 
         private void Modificarbutton_Click(object sender, EventArgs e)
         {
+            LimpiarProvider();
+            if (IdProvider() == false)
+            {
+                return;
+            }
+
             if (BLL.EstudiantesBLL.Modificar(LlenaClase()))
                 MessageBox.Show("Modificado");
         }
@@ -76,6 +124,11 @@ namespace Repaso
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             int ID;
+            LimpiarProvider();
+            if(IdProvider()==false)
+            {
+                return;
+            }
             Estudiantes estudiante = new Estudiantes();
             int.TryParse(PersonaIdtextBox.Text, out ID);
 
@@ -93,6 +146,22 @@ namespace Repaso
             {
                 MessageBox.Show("Persona No encontada");
             }
+        }
+        private bool IdProvider()
+        {
+            bool paso = false;
+            if (PersonaIdtextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Debe llenar el campo indicado!!");
+                IDEstudianteserrorProvider.SetError(PersonaIdtextBox, "Debe llenar el campo");
+                
+            }
+            else
+            {
+                paso = true;
+            }
+            return paso;
+
         }
 
         private void NotasCrditobutton_Click(object sender, EventArgs e)

@@ -37,11 +37,22 @@ namespace Repaso.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AlbertLopezG\\SqlExpress;Initial Catalog=NotasDeCredito;Integrated Sec" +
-            "urity=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AlbertLopezG\\SqlExpress;Initial Catalog=NostasDeCreditoDb;Integrated " +
+            "Security=True")]
         public string ConnStr {
             get {
                 return ((string)(this["ConnStr"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AlbertLopezG\\SqlExpress;Initial Catalog=MontoExoneradodbs;Integrated " +
+            "Security=True")]
+        public string ConeStr {
+            get {
+                return ((string)(this["ConeStr"]));
             }
         }
     }
