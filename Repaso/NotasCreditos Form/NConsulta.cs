@@ -40,10 +40,6 @@ namespace Repaso.NotasCreditos_Form
             abrir.Show();
         }
 
-        private void MontoExoneradobutton_Click(object sender, EventArgs e)
-        {
-            cMontoExonerado abrir = new cMontoExonerado();
-            abrir.Show();
-        }
+        
     }
 }

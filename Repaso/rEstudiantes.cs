@@ -22,7 +22,7 @@ namespace Repaso
             PersonaIdtextBox.Clear();
             FechadateTimePicker.Value = DateTime.Now;
             NombrestextBox.Clear();
-            MontonumericUpDown.Value = 0;
+            MontoExoneradotextBox.Clear(); 
             txtObservacion.Clear();
             LimpiarProvider();
         }
@@ -37,12 +37,28 @@ namespace Repaso
         {
             Estudiantes estudiante = LlenaClase();
             LimpiarProvider();
-            if (Validar()==false)
+            if (PersonaIdtextBox.Text == string.Empty)
             {
-                return;
+
+
+                if (Validar() == false)
+                {
+                    return;
+                }
+                if (BLL.EstudiantesBLL.Guardar(estudiante))
+                    MessageBox.Show("Estudiante Guardado");
             }
-            if(BLL.EstudiantesBLL.Guardar(estudiante))
-                MessageBox.Show("Estudiante Guardado");
+            else
+            {
+                LimpiarProvider();
+                if (IdProvider() == false)
+                {
+                    return;
+                }
+
+                if (BLL.EstudiantesBLL.Modificar(LlenaClase()))
+                    MessageBox.Show("Modificado");
+            }
         }
         private bool Validar()
         {
@@ -52,11 +68,6 @@ namespace Repaso
             {
                 
                 NombreerrorProvider.SetError(NombrestextBox, "Debe llenar este campo");
-                abrir = 1;
-            }
-            if(MontonumericUpDown.Value == 0)
-            {
-                MontoerrorProvider.SetError(MontonumericUpDown, "Debe llenar este campo");
                 abrir = 1;
             }
             if(txtObservacion.Text == String.Empty)
@@ -81,7 +92,6 @@ namespace Repaso
             int.TryParse(PersonaIdtextBox.Text, out a);
             estudiante.EstudianteID = a;
             estudiante.Nombre = NombrestextBox.Text;
-            estudiante.Monto = (decimal)MontonumericUpDown.Value;
             estudiante.Observaciones = txtObservacion.Text;
             estudiante.Fecha = FechadateTimePicker.Value;
             return estudiante;
@@ -109,18 +119,7 @@ namespace Repaso
             }
         }
 
-        private void Modificarbutton_Click(object sender, EventArgs e)
-        {
-            LimpiarProvider();
-            if (IdProvider() == false)
-            {
-                return;
-            }
-
-            if (BLL.EstudiantesBLL.Modificar(LlenaClase()))
-                MessageBox.Show("Modificado");
-        }
-
+    
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             int ID;
@@ -137,7 +136,7 @@ namespace Repaso
             if (estudiante != null)
             {
                 NombrestextBox.Text = estudiante.Nombre;
-                MontonumericUpDown.Value = Convert.ToDecimal(estudiante.Monto);
+                MontoExoneradotextBox.Text = estudiante.Monto.ToString();
                 txtObservacion.Text = estudiante.Observaciones;
                 FechadateTimePicker.Value = estudiante.Fecha;
 

@@ -36,6 +36,7 @@ namespace Repaso.BLL
             {
                 Contexto contex = new Contexto();
 
+
                 contex.Entry(estudiante).State = EntityState.Modified;
                 if (contex.SaveChanges() > 0)
                 {

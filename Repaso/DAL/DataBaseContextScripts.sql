@@ -1,4 +1,4 @@
-﻿create database NotaCreditodb
+﻿create database NostasDeCreditoDb
 go
 
 Create table NotasCredito

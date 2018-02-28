@@ -9,15 +9,20 @@ using System.Text;
 
 namespace Repaso.BLL
 {
-    class NotasCreditoBLL
+    public class NotasCreditoBLL
     {
-        public static bool Guardar(NotasCredito estudiante)
+      
+
+        public static bool Guardar(NotasCredito Notas)
         {
             bool paso = false;
             try
             {
                 Contex Contex = new Contex();
-                Contex.Notas.Add(estudiante);
+                var estudiante = BLL.EstudiantesBLL.Buscar(Notas.EstudianteID);
+                estudiante.Monto += Notas.Monto;
+                BLL.EstudiantesBLL.Modificar(estudiante);
+                Contex.Notas.Add(Notas);
                 Contex.SaveChanges();
                 paso = true;
             }
@@ -26,6 +31,23 @@ namespace Repaso.BLL
                 throw;
             }
             return paso;
+        }
+        public static decimal CalcularPCT(decimal pct)
+        {
+            pct /= 100;
+            return pct;
+        }
+
+        public static decimal CalcularMonto(decimal PCT, decimal Monto)
+        {
+            NotasCredito Nota = new NotasCredito();
+
+            decimal pctbeca = 0, MontoFinal = 0;
+            pctbeca = PCT / 100;
+
+            MontoFinal = pctbeca * Monto;
+            return MontoFinal;
+
         }
 
         public static bool Eliminar(int EstudianteId)
@@ -36,9 +58,11 @@ namespace Repaso.BLL
             {
                 Contex contex = new Contex();
 
-                var estudiante = contex.Notas.Find(EstudianteId);
-
-                contex.Notas.Remove(estudiante);
+                var nota = contex.Notas.Find(EstudianteId);
+                var estudiante = BLL.EstudiantesBLL.Buscar(nota.EstudianteID);
+                estudiante.Monto -= nota.Monto;
+                BLL.EstudiantesBLL.Modificar(estudiante);
+                contex.Notas.Remove(nota);
                 contex.SaveChanges();
 
                 paso = true;
@@ -84,7 +108,6 @@ namespace Repaso.BLL
             return NotaCredito;
         }
 
-
         public static bool Modificar(NotasCredito nota)
         {
             bool paso = false;
@@ -92,8 +115,15 @@ namespace Repaso.BLL
             try
             {
                 Contex contex = new Contex();
+                var estudiante = BLL.EstudiantesBLL.Buscar(nota.EstudianteID);
+                var notas = Buscar(nota.NotasID);
+                estudiante.Monto -= notas.Monto;
+                BLL.EstudiantesBLL.Modificar(estudiante);
 
                 contex.Entry(nota).State = EntityState.Modified;
+
+                estudiante.Monto += nota.Monto;
+                BLL.EstudiantesBLL.Modificar(estudiante);
                 if (contex.SaveChanges() > 0)
                 {
                     paso = true;

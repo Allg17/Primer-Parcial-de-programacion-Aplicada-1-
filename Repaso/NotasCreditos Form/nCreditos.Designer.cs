@@ -50,7 +50,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Consultabutton = new System.Windows.Forms.Button();
-            this.Modificarbutton = new System.Windows.Forms.Button();
             this.PCTnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.IDerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.EstudianteIDerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -58,8 +57,6 @@
             this.ObservacioneserrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.PCTerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.MontoExoneradotextBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MontoAsignaturanumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PCTnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDerrorProvider)).BeginInit();
@@ -179,6 +176,7 @@
             // 
             this.NombretextBox.Location = new System.Drawing.Point(421, 130);
             this.NombretextBox.Name = "NombretextBox";
+            this.NombretextBox.ReadOnly = true;
             this.NombretextBox.Size = new System.Drawing.Size(157, 20);
             this.NombretextBox.TabIndex = 13;
             // 
@@ -230,7 +228,6 @@
             this.MontotextBox.ReadOnly = true;
             this.MontotextBox.Size = new System.Drawing.Size(100, 20);
             this.MontotextBox.TabIndex = 19;
-            this.MontotextBox.TextChanged += new System.EventHandler(this.MontotextBox_TextChanged);
             // 
             // label7
             // 
@@ -258,16 +255,6 @@
             this.Consultabutton.Text = "Consulta";
             this.Consultabutton.UseVisualStyleBackColor = true;
             this.Consultabutton.Click += new System.EventHandler(this.Consultabutton_Click);
-            // 
-            // Modificarbutton
-            // 
-            this.Modificarbutton.Location = new System.Drawing.Point(396, 391);
-            this.Modificarbutton.Name = "Modificarbutton";
-            this.Modificarbutton.Size = new System.Drawing.Size(75, 23);
-            this.Modificarbutton.TabIndex = 21;
-            this.Modificarbutton.Text = "Modificar";
-            this.Modificarbutton.UseVisualStyleBackColor = true;
-            this.Modificarbutton.Click += new System.EventHandler(this.Modificarbutton_Click);
             // 
             // PCTnumericUpDown
             // 
@@ -301,32 +288,12 @@
             // 
             this.errorProvider6.ContainerControl = this;
             // 
-            // MontoExoneradotextBox
-            // 
-            this.MontoExoneradotextBox.Location = new System.Drawing.Point(151, 341);
-            this.MontoExoneradotextBox.Name = "MontoExoneradotextBox";
-            this.MontoExoneradotextBox.ReadOnly = true;
-            this.MontoExoneradotextBox.Size = new System.Drawing.Size(100, 20);
-            this.MontoExoneradotextBox.TabIndex = 23;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(55, 344);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 13);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Monto Exonerado";
-            // 
             // nCreditos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(590, 440);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.MontoExoneradotextBox);
             this.Controls.Add(this.PCTnumericUpDown);
-            this.Controls.Add(this.Modificarbutton);
             this.Controls.Add(this.Consultabutton);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.MontotextBox);
@@ -388,7 +355,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button Consultabutton;
-        private System.Windows.Forms.Button Modificarbutton;
         private System.Windows.Forms.NumericUpDown PCTnumericUpDown;
         private System.Windows.Forms.ErrorProvider IDerrorProvider;
         private System.Windows.Forms.ErrorProvider EstudianteIDerrorProvider;
@@ -396,7 +362,5 @@
         private System.Windows.Forms.ErrorProvider ObservacioneserrorProvider;
         private System.Windows.Forms.ErrorProvider PCTerrorProvider;
         private System.Windows.Forms.ErrorProvider errorProvider6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox MontoExoneradotextBox;
     }
 }

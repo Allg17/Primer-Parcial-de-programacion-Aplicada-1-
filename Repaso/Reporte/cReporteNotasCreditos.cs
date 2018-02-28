@@ -23,6 +23,8 @@ namespace Repaso.Reporte
 
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
+        
+            
             ReportDocument r = new ReportDocument();
             r.Load("C:/Users/Usuario/Desktop/01 Enero 2028/Aplicada 1/Primer Parcial/Repaso/Repaso/Reporte/NotasCreditosReporte.rpt");
             r.SetDataSource(reporte);
